@@ -37,7 +37,7 @@ Clarification:
 ```
 
 ### 思路
-![26.remove-duplicates-from-sorted-array](../assets/easy/26.remove-duplicates-from-sorted-array.gif)
+![26.remove-duplicates-from-sorted-array](../assets/26.remove-duplicates-from-sorted-array.gif)
 双指针，当前指针(a)固定，另一指针(b)向前遍历。
 如果b指向的值与a不相同，则a、b往前挪,并且b处值要复制到a处；
 b指向的值与a相同，a不动,b走一步
