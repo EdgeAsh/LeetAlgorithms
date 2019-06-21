@@ -1,0 +1,52 @@
+### 题目
+```
+Given two sorted integer arrays nums1 and nums2, merge nums2 into nums1 as one sorted array.
+
+Note:
+  The number of elements initialized in nums1 and nums2 are m and n respectively.
+  You may assume that nums1 has enough space (size that is greater or equal to m + n) to hold additional elements from nums2.
+
+Example:
+  Input:
+    nums1 = [1,2,3,0,0,0], m = 3
+    nums2 = [2,5,6],       n = 3
+
+  Output: [1,2,2,3,5,6]
+```
+#### 题目意思
+在原数组nums1中修改
+
+### 思路
+1. ~~遍历两个数组a、b，比较元素大小~~(原始思路，得不到结果)
+    1. a[i] >= b[i]时，b[i]被push到a[i]位置(这步怎么操作),i+1；a,b继续遍历；
+      - // arr.splice(position, numberOfItemsToRemove, item)
+    2. a[i] < b[i]时，a遍历到下一位，与b继续比较
+    3. 去掉非顺序数字
+
+2. 从后往前遍历
+    1. 把最大的数先放在最后位置，往前推；
+    2. 同样的，a,b两数组也从最末位开始比较。大的就存，小了再比较。直到所有元素被遍历完
+
+### 代码
+```
+function mergeSrtArr(a, m, b, n) {
+  let po = m + n - 1;
+  while(n > 0) {
+    if(m > 0 && a[m-1] >= b[n-1]) {
+      a[po] = a[m-1]
+      m--
+    } else {
+      a[po] = b[n-1]
+      n--
+    }
+    po--
+  }
+}
+```
+
+### 感想
+按找自己的思路没有做出来，花了比较多的时间。越想越复杂，想通过试错得到最终答案；
+对这一方式要考虑下，如果长时间[^1]没调正确(说明思路有问题)那就赶快换方式；想不出新思路(说明自己不会)就去看别人的
+将思路转变成代码是有比较大的成本的(时间+精力)，这些都是**有限资源**，试错的代价是很高的
+
+[^1]: 长时间怎么定义，由自己决定
