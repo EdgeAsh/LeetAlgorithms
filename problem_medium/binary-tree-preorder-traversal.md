@@ -1,0 +1,81 @@
+### 题目
+```
+Given a binary tree, return the preorder traversal of its nodes' values.
+
+Example:
+
+Input: [1,null,2,3]
+   1
+    \
+     2
+    /
+   3
+
+Output: [1,2,3]
+
+Follow up: Recursive solution is trivial, could you do it iteratively?
+```
+
+### 需要考虑的问题
+当使用栈结构辅助遍历时，出入栈的条件是什么？什么时候终止遍历？
+
+### 思路
+前序遍历[二叉树](../basics/binary-tree.md)-根左右
+1. 使用递归方式
+    将根-左-右当作一个整体，一层层套下去；需要确定终止条件。这个方法也是最先想到的
+2. 利用栈
+    - 先将根节点入栈，出栈判断元素是否存在。存在读取值并且存入数组；
+    - 判断是否有右节点，有就入栈，再判断是否有左节点，有就入栈。--先入右再入左（因为栈结构的特性）
+    - 出栈一元素，继续此流程。
+
+### 代码
+```
+/**
+ * Definition for a binary tree node.
+ * function TreeNode(val) {
+ *     this.val = val;
+ *     this.left = this.right = null;
+ * }
+ */
+/**
+ * @param {TreeNode} root
+ * @return {number[]}
+ * 递归方式
+ */
+var preorderTraversal = function(root, arr = []) {
+    if (!root) return arr
+    arr.push(root.val)
+    if(root.left) {
+        preorderTraversal(root.left, arr)
+    }
+    if(root.right) {
+        preorderTraversal(root.right, arr)
+    }
+    return arr
+};
+
+/**
+ * @param {TreeNode} root
+ * @return {number[]}
+ * 利用栈
+ */
+ var preorderTraversal = function(root, arr = []) {
+    if (!root) return arr
+    const stack = [root];
+    let node = stack.pop()
+    while(node) {
+        arr.push(node.val);
+        if (node.right) {
+            stack.push(node.right);
+        }
+        if (node.left) {
+            stack.push(node.left)
+        }
+        node = stack.pop();
+    }
+    return arr
+};
+```
+
+### 效率
+

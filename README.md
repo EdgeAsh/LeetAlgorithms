@@ -8,4 +8,16 @@
 4. 完善解题思路
 
 ### 目的
-这些内容更像是自己的学习笔记
+这些内容是自己的学习笔记
+
+### 常用markdown语法
+1. 图片
+    ![Tux, the Linux mascot](/assets/images/tux.png)
+2. 链接
+    [Duck Duck Go](https://duckduckgo.com).
+
+### 效率标准
+时间复杂度与空间复杂度怎么计算的？
+
+### 代码正确的标准
+代码至少需要通过leetcode所有的测试用例。

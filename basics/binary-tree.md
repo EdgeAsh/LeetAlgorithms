@@ -20,6 +20,8 @@
   b. 出栈一个元素，将右节点和左节点依次入栈
   c. 重复b步骤
 
+    - [例题](../problem_medium/binary-tree-preorder-traversal.md)
+
 2. 中序遍历(左-根-右)
   a. 根节点入栈
   b. 判断有无左节点，有则入栈，直到叶子节点
