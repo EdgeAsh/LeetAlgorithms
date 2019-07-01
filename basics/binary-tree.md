@@ -26,6 +26,8 @@
   a. 根节点入栈
   b. 判断有无左节点，有则入栈，直到叶子节点
   c. 出栈，判断有没有右节点，有则入栈，继续执行b
+  
+    - [例题](../problem_medium/binary-tree-inorder-traversal.md)
 
 3. 后序遍历(左-右-根)
   困难程度TODO
