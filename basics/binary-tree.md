@@ -31,6 +31,7 @@
 
 3. 后序遍历(左-右-根)
   困难程度TODO
+    - [例题](../problem_medium/binary-tree-postorder-traversal.md)
 
 4. 层次遍历
   a. 根节点入队列，并入队列一个特殊的标识位
