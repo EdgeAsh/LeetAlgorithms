@@ -15,13 +15,25 @@ Output: [3,2,1]
 Follow up: Recursive solution is trivial, could you do it iteratively?
 ```
 
+### 问题关键点
+1. 什么情况下可以读取节点值；
+   - 为叶子节点时可以读取值；节点有子节点而且子节点的值已经被读取，共两种情况
+2. 节点入栈的条件
+   - 非叶子节点且其子节点值也未被读取。子节点需要入栈(先右后左)
+3. 如何知道子节点值是否已经被读取
+   - 上次被pop出来的元素(首次用根元素)等于目前栈顶元素的左子或者右子；若成立则说明栈顶节点的子节点都被读取
+   > 分析一下，为什么P(子节点已被读取的元素)是上次被pop出来的元素等于当前栈顶元素的left`或者`right时的栈顶元素？
+   > 为什么判断条件只是left与right之一就行了？
+
 ### 思路
 后序遍历就是`左-右-根`
 1. 递归方式
    - 读取左节点值，右节点值，最后是根节点；想象成只有三个节点时的处理方式，然后对每个节点都使用同一个函数处理
-2. 利用栈结构，属于leetcode困难程度；节点入栈顺序是`根-右-左`
+2. 利用栈结构；节点入栈顺序是`根-右-左`
    - 根节点入栈
-   - 
+   - 判断栈顶节点不是叶子节点且子节点未被读取；成立就将右、左节点依次入栈，否则就读取该节点值而后将该节点出栈
+   - 出栈的元素需要暂存，用作下次循环中判断子元素已被读值的节点；
+   - 当stack空了，循环结束
 
 ### 代码
 ```
@@ -56,6 +68,32 @@ var postorderTraversal = function(root, arr = []) {
  * 利用栈结构
  */
 var postorderTraversal = function(root, arr = []) {
-   
+   if(!root) return []
+   const stack = [root]
+   let node = root; // 判断
+   while(stack.length) {
+      // 栈顶元素
+      let top = stack[stack.length-1];
+      if(
+         (!top.left && !top.right) // 叶子节点
+         || node === top.left || node === top.right // 子节点已被读值的节点
+         )
+      {
+         arr.push(top.val)
+         node = stack.pop()
+      } else { // 有子节点，需入栈
+         if(top.right) {
+            stack.push(top.right)
+         }
+         if(top.left) {
+            stack.push(top.left)
+         }
+      }
+   }
+   return arr
 };
 ```
+
+### 感想
+1. 几个关键问题没有想到(自身局限性)
+2. [子节点值已读的]节点判断条件理解不深，
