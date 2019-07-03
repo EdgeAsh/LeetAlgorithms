@@ -17,6 +17,7 @@ Given binary tree [3,9,20,null,null,15,7],
    15   7
 return its depth = 3.
 ```
+[leetcode原题](https://leetcode.com/problems/maximum-depth-of-binary-tree/description/)
 
 ### 问题逐点分析
 1. 数组表示二叉树，那么节点是怎么表示的？

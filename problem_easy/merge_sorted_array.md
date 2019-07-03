@@ -13,7 +13,9 @@ Example:
 
   Output: [1,2,2,3,5,6]
 ```
-#### 题目意思
+[leetcode原题](https://leetcode.com/problems/merge-sorted-array/description/)
+
+### 题目意思
 在原数组nums1中修改
 
 ### 思路

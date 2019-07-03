@@ -15,6 +15,7 @@ Output: [1,2,3]
 
 Follow up: Recursive solution is trivial, could you do it iteratively?
 ```
+[leetcode原题](https://leetcode.com/problems/binary-tree-preorder-traversal/)
 
 ### 需要考虑的问题
 当使用栈结构辅助遍历时，出入栈的条件是什么？什么时候终止遍历？

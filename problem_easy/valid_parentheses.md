@@ -28,6 +28,7 @@ Example 5:
   Input: "{[]}"
   Output: true
 ```
+[leetcode原题](https://leetcode.com/problems/valid-parentheses/description/)
 
 ### 思路
 使用栈结构，符号先入栈，遇到匹配的出栈；全部匹配的话，str遍历之后栈内就是空的

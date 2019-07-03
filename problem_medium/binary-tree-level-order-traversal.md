@@ -16,6 +16,8 @@ return its level order traversal as:
   [15,7]
 ]
 ```
+[leetcode原题](https://leetcode.com/problems/binary-tree-level-order-traversal/)
+
 ### 问题点
 使用队列
 1. 一层结束的标志是什么
@@ -31,6 +33,8 @@ return its level order traversal as:
 2. 队首元素P出队列，P非null则取P值并且将P的子节点入队列；
 3. 如果当前队列首元素为null,则上一层节点全被遍历，子节点都已入队列需加入结束标志;
 4. 当队列为空时，终止循环
+![层序遍历-BFS](../assets/binary-tree-traversal-bfs.gif);
+[图源](https://github.com/trekhleb/javascript-algorithms/tree/master/src/algorithms/tree/breadth-first-search)
 
 ### 代码
 ```

@@ -14,6 +14,7 @@ Input: [1,null,2,3]
 Output: [3,2,1]
 Follow up: Recursive solution is trivial, could you do it iteratively?
 ```
+[leetcode原题](https://leetcode.com/problems/binary-tree-postorder-traversal/)
 
 ### 问题关键点
 1. 什么情况下可以读取节点值；

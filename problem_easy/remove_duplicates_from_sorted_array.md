@@ -35,6 +35,7 @@ Clarification:
         print(nums[i]);
     }
 ```
+[leetcode原题](https://leetcode.com/problems/remove-duplicates-from-sorted-array/description/)
 
 ### 思路
 ![26.remove-duplicates-from-sorted-array](../assets/26.remove-duplicates-from-sorted-array.gif)
