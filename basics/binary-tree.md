@@ -17,21 +17,21 @@
     - 出栈一个元素，将右节点和左节点依次入栈
     - 重复b步骤
 
-      - [例题](../problem_medium/binary-tree-preorder-traversal.md)
+      - [例题](../problem_medium/144.binary-tree-preorder-traversal.md)
 
 2. 中序遍历(左-根-右)
     - 根节点入栈
     - 判断有无左节点，有则入栈，直到叶子节点
     - 出栈，判断有没有右节点，有则入栈，继续执行b
     
-      - [例题](../problem_medium/binary-tree-inorder-traversal.md)
+      - [例题](../problem_medium/94.binary-tree-inorder-traversal.md)
 
 3. 后序遍历(左-右-根)
     - 根节点入栈
     - 判断栈顶节点不是叶子节点且子节点未被读取；成立就将右、左节点依次入栈，否则就读取该节点值而后将该节点出栈
     - 出栈的元素需要暂存，用作下次循环中判断子元素已被读值的节点；
     - 当stack空了，循环结束
-      - [例题](../problem_hard/binary-tree-postorder-traversal.md)
+      - [例题](../problem_hard/145.binary-tree-postorder-traversal.md)
 
     难点在于判断`子节点已被读取值的节点`(个人观点)
 
@@ -41,7 +41,7 @@
     - 如果当前队列首元素为null,则上一层节点全被遍历，子节点都已入队列需加入结束标志;
     - 当队列为空时，终止循环
 
-      - [例题](../problem_medium/binary-tree-level-order-traversal.md)
+      - [例题](../problem_medium/102.binary-tree-level-order-traversal.md)
 
 #### 感想
 曾今也是学过算法课的，但是对于书本内容理解太死板(并没有实例化到代码里);
