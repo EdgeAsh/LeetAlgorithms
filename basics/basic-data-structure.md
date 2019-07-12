@@ -10,40 +10,50 @@
 1. 大顶堆
     - 将每个元素A[i]，得到A[i] >= A[i * 2 + 1]和A[i] >= A[i * 2 + 2]
     ```
-    function swap(arr, i){
-        if(arr[i] < arr[2*i+1]) {
-            arr[i] ^= arr[2*i+1]
-            arr[2*i+1] ^= arr[i]
-            arr[i] ^= arr[2*i+1]
-        }
-        if(arr[i] < arr[2*i+2]) {
-            arr[i] ^= arr[2*i+2]
-            arr[2*i+2] ^= arr[i]
-            arr[i] ^= arr[2*i+2]
+    function swap(arr, i, j){
+        arr[i] ^= arr[j]
+        arr[j] ^= arr[i]
+        arr[i] ^= arr[j]
+    }
+    function shiftDown(arr, i) {
+        // 先找到子节点中较大的那个.再与父节点比较交换
+        for(let j = 2*i+1; j < arr.length; j = 2*j+1) {
+            if((j+1) < arr.length && (arr[j] < arr[j+1])) { // 比较子节点大小
+                j++ // 选中较大那个
+            }
+            if(arr[i] < arr[j]) {
+                swap(arr, i, j);
+                i = j; // 换值了的那个成为新的父节点，再来
+            } else { // 没有换，后面也肯定不会有影响
+                break;
+            }
         }
     }
     /**
     * 大顶堆化
-    * 找到最后一个非叶子节点A[i]，调整顺序；
-    * i--再调整，但是新换值可能会影响上次调整的堆，
-    * 因此每遍历一次都需要判断上次的堆顺序
+    * 找到最后一个非叶子节点A[i]，逆序遍历；
+    * 比较三节点，最大放父位。
+    * 若位置有变化，以前的要重新遍历确认位置
+    * => 有双循环
+    * 小值都是往下沉的
     */
     function maxHeapify(arr) {
         let lastRoot = (arr.length >> 1) - 1;
         for(let i=lastRoot; i>=0 ; i--) {
-            swap(arr, i)
-            // 重新整理上次堆顺序 **这一逻辑处理有问题// TODO**
-            if(i < lastRoot) {
-                swap(arr, i+1)
-            }
+            shiftDown(arr, i)
         }
         return arr;
     }
     ```
 2. 小顶堆
     - 将每个元素A[i]，得到A[i] <= A[i * 2 + 1]和A[i] <= A[i * 2 + 2]
+    ```
+    小顶堆就是将大顶堆判断大小变一下就行了
+    ```
 
 #### 关键问题
 1. 最后一个非叶子节点下标如何确认？
     > i = Math.floor(arr.length/2 - 1) 
-2. 检验堆的时机
+    > 子节点就是j=2*i+1(左)，j+1(右)
+2. 再遍历以前位置的锚点是哪一个？
+    > 新锚点就是与父节点换值的那个
