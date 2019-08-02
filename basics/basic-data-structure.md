@@ -9,42 +9,62 @@
 > 堆化就是将(无序)数组变成堆数组(大/小顶堆)
 1. 大顶堆
     - 将每个元素A[i]，得到A[i] >= A[i * 2 + 1]和A[i] >= A[i * 2 + 2]
-    ```
-    function swap(arr, i, j){
-        arr[i] ^= arr[j]
-        arr[j] ^= arr[i]
-        arr[i] ^= arr[j]
-    }
-    function shiftDown(arr, i) {
-        // 先找到子节点中较大的那个.再与父节点比较交换
-        for(let j = 2*i+1; j < arr.length; j = 2*j+1) {
-            if((j+1) < arr.length && (arr[j] < arr[j+1])) { // 比较子节点大小
-                j++ // 选中较大那个
-            }
-            if(arr[i] < arr[j]) {
-                swap(arr, i, j);
-                i = j; // 换值了的那个成为新的父节点，再来
-            } else { // 没有换，后面也肯定不会有影响
-                break;
+        ```js
+        function swap(arr, i, j){
+            arr[i] ^= arr[j]
+            arr[j] ^= arr[i]
+            arr[i] ^= arr[j]
+        }
+        function shiftDown(arr, i) {
+            // 先找到子节点中较大的那个.再与父节点比较交换
+            for(let j = 2*i+1; j < arr.length; j = 2*j+1) {
+                if((j+1) < arr.length && (arr[j] < arr[j+1])) { // 比较子节点大小
+                    j++ // 选中较大那个
+                }
+                if(arr[i] < arr[j]) {
+                    swap(arr, i, j);
+                    i = j; // 换值了的那个成为新的父节点，再来
+                } else { // 没有换，后面也肯定不会有影响
+                    break;
+                }
             }
         }
-    }
-    /**
-    * 大顶堆化
-    * 找到最后一个非叶子节点A[i]，逆序遍历；
-    * 比较三节点，最大放父位。
-    * 若位置有变化，以前的要重新遍历确认位置
-    * => 有双循环
-    * 小值都是往下沉的
-    */
-    function maxHeapify(arr) {
-        let lastRoot = (arr.length >> 1) - 1;
-        for(let i=lastRoot; i>=0 ; i--) {
-            shiftDown(arr, i)
+        /**
+        * 大顶堆化
+        * 找到最后一个非叶子节点A[i]，逆序遍历；
+        * 比较三节点，最大放父位。
+        * 若位置有变化，以前的要重新遍历确认位置
+        * => 有双循环
+        * 小值都是往下沉的
+        * 时间复杂度O(N)
+        */
+        function maxHeapify(arr) {
+            let lastRoot = (arr.length >> 1) - 1;
+            for(let i=lastRoot; i>=0 ; i--) {
+                shiftDown(arr, i)
+            }
+            return arr;
         }
-        return arr;
-    }
-    ```
+        ```
+    - 新元素进入的时候怎么操作
+        ```js
+        /**
+         * 插入再变位置
+         * 单独这个函数重复调用也能新建一个堆
+         * 时间复杂度O(N log N)
+         */
+        function insertEl(arr, el) {
+            arr.push(el);
+            let len = arr.length;
+            let pa = (len>>1) - 1;
+            let ch = len - 1;
+            while(arr[ch] > arr[pa]) {
+                swap(arr, ch, pa)
+                ch = pa;
+                pa = (pa>>1) - 1;
+            }
+        }
+        ```
 2. 小顶堆
     - 将每个元素A[i]，得到A[i] <= A[i * 2 + 1]和A[i] <= A[i * 2 + 2]
     ```
