@@ -49,15 +49,14 @@
     - 新元素进入的时候怎么操作
         ```js
         /**
-         * 插入再变位置
+         * 插入末尾再与夫节点比较
          * 单独这个函数重复调用也能新建一个堆
          * 时间复杂度O(N log N)
          */
         function insertEl(arr, el) {
             arr.push(el);
-            let len = arr.length;
-            let pa = (len>>1) - 1;
-            let ch = len - 1;
+            let pa = (arr.length>>1) - 1;
+            let ch = arr.length - 1;
             while(arr[ch] > arr[pa]) {
                 swap(arr, ch, pa)
                 ch = pa;
