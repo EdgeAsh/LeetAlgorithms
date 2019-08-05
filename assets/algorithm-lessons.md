@@ -1,6 +1,6 @@
-## 自己购买的算法学习视频链接与观看密码
+# 自己购买的算法学习视频链接与观看密码
 
-### 动态规划
+## 动态规划
 [棍切割(上)](https://v.youku.com/v_show/id_XMzUxODQ0ODE0OA==.html)
     观看密码：updx3093rp
 
