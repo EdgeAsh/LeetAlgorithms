@@ -38,7 +38,7 @@
 | $\cdots$ | `$\cdots$` | $\int$ | `$\int$` |
 | $\iint$   | `$\iint$` | $\oint$ | `$\oint$` |
 | $\infty$ | `$\infty$` | $\nabla$ | `$\nabla$` |
-| $\because$ |   `$\because$` |  $\therefore$ |  `$\therefore$` | 
+| ∵ | * `$\because$` |  ∴ | * `$\therefore$` |
 | $\forall$ | `$\forall$` | $\exists$ | `$\exists$` |
 | $\not=$  | `$\not=$` | $\not>$  | `$\not>$` |
 | $\leq$  | `$\leq$` | $\geq$ | `$\geq$` |  $\not\subset$  | `$\not\subset$` |
@@ -75,4 +75,8 @@
 | $\partial$ | `$\partial$` | $\lbrace \rbrace$ | `$\lbrace \rbrace$` |
 | $\overline{a}$ | `$\overline{a}$` |
 
-[Markdown数学符号&公式](https://blog.csdn.net/Katherine_hsr/article/details/79179622)
+#### 注意
+1. 带`*`的不一定能编译
+2. 如果在github上不能看到编译后的符号，请到[这里](https://chrome.google.com/webstore/detail/mathjax-plugin-for-github/ioemnmodlmafdkllaclgeombjnmnbima/related)安装插件
+
+参考[Markdown数学符号&公式](https://blog.csdn.net/Katherine_hsr/article/details/79179622)
