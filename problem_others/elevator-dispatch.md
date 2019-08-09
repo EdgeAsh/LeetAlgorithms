@@ -20,15 +20,32 @@ $\sum_{i=0}^n$$\lbrace$T[i]$\times$$\mid$i - x$\mid$$\rbrace$
 
 ### 思路
 从简单易想到的方式开始；
-从1楼开始直到顶层，算出在每层人需要爬梯的总和
+从1楼开始直到顶层，算出在每层人需要爬梯的总和数组result
+找出Min(result)下标
 
 ### 代码
 ```js
-let nPerson = [] // 到第i层的人数
-let n = 10; // 层数
-for(let i = 0; i < n; i++) {
-  
+function original(nPerson) {
+  // nPerson[i] 在i层下的人， N 总楼层
+  let result = []; // 存各层结果
+  let target = 0; // 最小值下标
+  let N = nPerson.length;
+  for(let x = 0; x < N; x++) { // 目标楼层x
+    result[x]=0;
+    for(let i = 0; i < N; i++) { // 人在哪层停留
+      result[x] += nPerson[i]*Math.abs(x-i);
+    }
+    if(result[target] > result[x]) {
+      target = x
+    }
+  }
+  return target + 1;
 }
 ```
 
+### 感想
+第一次做[编程之美]题，比较紧张无措；因为自己内心给它的设定是高大上的！认为它不会简单。
+但是做过一个之后，并不是所有题都难；`初代代码`写出来之后发现这个好普通啊；这里有一个将生活中的问题抽象的过程，一段话里你得分得清常量变量，因为它不会告诉你常量是什么变量是什么。将一切理清楚这个过程是在leetcode上没有的(leetcode上先给函数+参数,省了点力气)，我要做的是抽象后的代码，适合机器跑的代码。
+这题就是，我们人脑设计路线。计算机去跑去找
 
+[编程之美]自己写代码不知道是否正确，没有测试用例。还需要自己测试；否则只能抄代码才能保证正确(那样也就失去意义了)
