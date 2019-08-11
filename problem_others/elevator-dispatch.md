@@ -22,24 +22,64 @@ $\sum_{i=0}^n$$\lbrace$T[i]$\times$$\mid$i - x$\mid$$\rbrace$
 从简单易想到的方式开始；
 从1楼开始直到顶层，算出在每层人需要爬梯的总和数组result
 找出Min(result)下标
+时间复杂度是O(N^2)
+
+再进一步考虑
+假设在i层停，共需要爬Y阶；在i层有N2人，在i层以下共N1人，i层以上共N3人。
+如果在i-1层停，相比i层变化Y+N2+N3-N1 = Y - (N1-N2-N3) => N1 > (N2 + N3)时会减少爬阶数
+如果在i+1层停，相比i层变化Y-N3+N2+N1 = Y - (N3-N2-N1) => N3 > (N2 + N1)时会减少爬阶数
+所以在N1 > N2+N3时应该在i-1层停，N3 > N2+N1时应该在i+1层停; 否则在i层停
+
+现在我们以第一层作为初始，算出i=1时Y的值还有N3
 
 ### 代码
 ```js
-function original(nPerson) {
+/**
+* 两个测试用例
+* nPerson = [0, 1, 3, 4, 2, 3]
+* nPerson = [0, 1, 0, 2, 2, 6]
+*/
+
+function original(nPerson) { // nPerson首元素设0，使楼层与下标对应
   // nPerson[i] 在i层下的人， N 总楼层
-  let result = []; // 存各层结果
-  let target = 0; // 最小值下标
-  let N = nPerson.length;
-  for(let x = 0; x < N; x++) { // 目标楼层x
+  let result = [0]; // 存各层结果
+  let target = 1; // 最小值下标
+  for(let x = 1; x < nPerson.length; x++) { // 目标楼层x
     result[x]=0;
-    for(let i = 0; i < N; i++) { // 人在哪层停留
+    for(let i = 1; i < nPerson.length; i++) { // 人在哪层停留
       result[x] += nPerson[i]*Math.abs(x-i);
     }
     if(result[target] > result[x]) {
       target = x
     }
   }
-  return target + 1;
+  return target;
+}
+
+function betterOne(nPerson) { // 首元素设空, 下标就与楼层对应了，nPerson的长度-1就是楼层数
+    let N1 = 0;
+    let N2 = nPerson[1];
+    let N3 = 0;
+    let Y = 0;
+    let target = 1;
+    // 第一层时，算出人需要走的楼梯数Y和在一楼以上的人数N3
+    for(let i = 2; i < nPerson.length; i++) {
+        N3 += nPerson[i];
+        Y += nPerson[i]*(i-1);
+    }
+    // 再来优化
+    for(let i = 2; i < nPerson.length; i++) {
+		console.log('yicici ', Y);
+        if (N1+N2 < N3) { // 在i+1层停比较好
+            target = i;
+            Y += (N1 + N2 - N3);
+            N1 += N2
+            N3 -= nPerson[i]
+            N2 = nPerson[i]
+        }
+    }
+	console.log('最少', Y);
+    return target
 }
 ```
 
@@ -49,3 +89,5 @@ function original(nPerson) {
 这题就是，我们人脑设计路线。计算机去跑去找
 
 [编程之美]自己写代码不知道是否正确，没有测试用例。还需要自己测试；否则只能抄代码才能保证正确(那样也就失去意义了)
+
+关于第二种O(N)的表示法，解法包含两个for循环也是O(N)让我不能理解。是O(2N)才对
