@@ -24,6 +24,7 @@ $\sum_{i=0}^n$$\lbrace$T[i]$\times$$\mid$i - x$\mid$$\rbrace$
 #### 从简单易想到的方式开始；朴素解法 
 从1楼开始直到顶层，算出在每层人需要爬梯的总和数组result 
 找出Min(result)下标  
+
 时间复杂度是O(N^2)  
 
 #### (动态规划)进一步考虑 
@@ -31,13 +32,16 @@ $\sum_{i=0}^n$$\lbrace$T[i]$\times$$\mid$i - x$\mid$$\rbrace$
 如果在i-1层停，相比i层变化Y+N2+N3-N1 = Y - (N1-N2-N3) => N1 > (N2 + N3)时会减少爬阶数  
 如果在i+1层停，相比i层变化Y-N3+N2+N1 = Y - (N3-N2-N1) => N3 > (N2 + N1)时会减少爬阶数  
 所以在N1 > N2+N3时应该在i-1层停，N3 > N2+N1时应该在i+1层停; 否则在i层停  
-现在我们以第一层作为初始，算出i=1时Y的值还有N3;对结果进行优化，只要Y可以减少就是优化的方向  
-N3 > N2 + N1时可以在i+1层停  
+初始状态电梯停在第一层，向上进行状态的变迁，开始时N2 + N1 - N3 < 0  
+sum越来越小，直到某一层N2 + N1 >= N3，就没有必要在往上走了。这时已求出最合适的楼层了 
+
 时间复杂度O(N)
 
 #### 中位数方法
 假设两个人在2楼和9楼下。那么在2-9楼之间任意层停，两人走楼梯的层数和是不变的  
+换一组(第二小、第二大)人也是这么处理  
 将每个人要去的楼层从低到高逐一排列，找到中位数，此中位数就是最优楼层  
+
 时间复杂度O(N)
 
 #### 扩展问题2的解
@@ -77,16 +81,18 @@ function betterOne(nPerson) { // 首元素设空, 下标就与楼层对应了，
     // 第一层时，算出人需要走的楼梯数Y和在一楼以上的人数N3
     for(let i = 2; i < nPerson.length; i++) {
         N3 += nPerson[i];
-        Y += nPerson[i]*(i-1);
+        // Y += nPerson[i]*(i-1);
     }
     // 再来优化
     for(let i = 2; i < nPerson.length; i++) {
         if (N1+N2 < N3) { // 在i+1层停比较好
             target = i;
-            Y += (N1 + N2 - N3);
+            // Y += (N1 + N2 - N3);
             N1 += N2
             N3 -= nPerson[i]
             N2 = nPerson[i]
+        } else {
+          break;
         }
     }
     return target
@@ -97,7 +103,16 @@ function betterOne(nPerson) { // 首元素设空, 下标就与楼层对应了，
 * 中位数方法
 */
 function median(nPerson) {
-
+    const newArr = []; // 存楼层
+    for(let i=0; i < nPerson.length; i++) {
+      while(nPerson[i] > 0) {
+        newArr.push(i)
+        nPerson[i]--
+      }
+    }
+    let len = newArr.length;
+    // 返回楼层中位数
+    return len % 2 == 1 ? newArr[(len+1)/2] : newArr[len/2]
 }
 
 /**
