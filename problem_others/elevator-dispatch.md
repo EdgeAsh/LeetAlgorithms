@@ -138,6 +138,8 @@ function betterOnewithWeight(nPerson, Weights) { // 首元素设空, 下标就�
             N1 += N2
             N3 -= nPerson[i]
             N2 = nPerson[i]
+        } else {
+            break;
         }
     }
     return target
