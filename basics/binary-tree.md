@@ -43,6 +43,10 @@
 
       - [例题](../problem_medium/102.binary-tree-level-order-traversal.md)
 
+
+![不同遍历效果](../assets/binary-tree-traversal-outcome.png)
+
+
 #### 感想
 曾今也是学过算法课的，但是对于书本内容理解太死板(并没有实例化到代码里);
 导致自己根本不理解，也完全消化不了
