@@ -41,5 +41,11 @@ function insertionSort(arr) {
 治：处理元问题  
 合：将元问题的解合成复杂问题的解  
 
+#### js代码
+```js
+function mergingSort(arr) {
+    // 分
+}
+```
 
 ## 时间复杂度O(N)
