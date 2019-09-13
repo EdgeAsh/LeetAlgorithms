@@ -41,6 +41,12 @@ function insertionSort(arr) {
 治：处理元问题  
 合：将元问题的解合成复杂问题的解  
 
+分解的函数divide将原始数组一分为二，递归下去，直到数组不可再分
+合并是另一个函数merge，接收两个参数。是两个数组，将两个数组合并成一个(排序在此)
+注意较长的数组处理
+
+递归怎么用还是不好想的
+
 #### js代码
 ```js
 function merge(leftArr, rightArr){  
@@ -54,15 +60,15 @@ function merge(leftArr, rightArr){
     return result.concat(leftArr).concat(rightArr);  //剩下的就是合并，这样就排好序了  
 }  
 
-function mergeSort(array){  
+function divide(array){  
     if (array.length == 1) return array;  
-    var middle = Math.floor(array.length / 2);       //求出中点  
+    var middle = array.length>>1       //求出中点  
     var left = array.slice(0, middle);               //分割数组  
     var right = array.slice(middle);  
-    return merge(mergeSort(left), mergeSort(right)); //递归合并与排序  
+    return merge(divide(left), divide(right)); //递归合并与排序  
 }  
 
-var arr = mergeSort([32,12,56,78,76,45,36]);
+var arr = divide([32,12,56,78,76,45,36]);
 console.log(arr);   // [12, 32, 36, 45, 56, 76, 78]
 ```
 
