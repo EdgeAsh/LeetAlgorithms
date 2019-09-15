@@ -82,6 +82,8 @@ console.log(arr);   // [12, 32, 36, 45, 56, 76, 78]
 ```
 
 ### 堆排序(in-place)(不稳定)
+有关堆的知识[在这](../basic-data-structure.md#堆);
+
 
 ### 快速排序(in-place)(稳定)
 
