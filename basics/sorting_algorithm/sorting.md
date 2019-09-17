@@ -87,7 +87,7 @@ console.log(arr);   // [12, 32, 36, 45, 56, 76, 78]
 这是因为堆排序的特点是in-place;拿到堆顶，把这个元素放在数组的空处；  
 因为最大值拿出，再次堆化后最后一位就空出来了  
 
-步骤：
+步骤： 
 调整i(元素)使之符合堆特性(下沉)    
 建堆   
 堆排   
@@ -96,8 +96,29 @@ console.log(arr);   // [12, 32, 36, 45, 56, 76, 78]
 对节点开权O(longN)   
 最大元 O(1)  
 
+代码
+```js
+function shiftDown(arr, i) {
+    // 来到这里都是子大于父的，只需要互换就行
+    while(arr[i] < arr[2*i+1])
+}
 
-### 快速排序(in-place)(稳定)
+function heapSort(arr) {
+    // 最后一个父节点
+    let lf = (arr.lenght>>1)-1;
+    for(let i = lf; i > 0; i--) {
+        if (arr[i] >= arr[2*i+1] && arr[i] >= arr[2*i+2]) {
+
+        } else {
+            shiftDown(arr, i)
+        }
+    }
+}
+```
+
+
+
+### 快速排序(in-place)(不稳定)
 
 
 ## 时间复杂度O(N)
