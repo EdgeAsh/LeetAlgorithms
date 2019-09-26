@@ -122,7 +122,7 @@ function heapSort(arr) {
 划分算法，分治递归。
 枢纽元的概念
 
-划分算法怎么做？
+划分算法怎么做？（Lomuto划分算法还有Hoare划分）
 
 
 ## 时间复杂度O(N)
