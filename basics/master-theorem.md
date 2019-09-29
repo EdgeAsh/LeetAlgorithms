@@ -3,3 +3,9 @@
 
 [视频资源，主定理与快速记忆](https://v.youku.com/v_show/id_XMzY1NDYxMTA5Ng==.html?)  
 观看密码： eogo3027fg
+
+### 三种情况
+
+
+
+### 推理过程，暂时忽略
