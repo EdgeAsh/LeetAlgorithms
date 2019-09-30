@@ -18,8 +18,8 @@
 [快速排序（下）](https://v.youku.com/v_show/id_XMzI2MTM5MjE4MA==.html)  
 观看密码：uhuq4890po
 
-[]()  
-观看密码： 
+[线性时间的排序(上)](https://v.youku.com/v_show/id_XMzI3MjQ4MDc0MA==.html)  
+观看密码：rfdh8742fe  
 
-[]()  
-观看密码： 
+[线性时间的排序(下)](https://v.youku.com/v_show/id_XMzI3MjQ4OTQ0NA==.html)  
+观看密码：uigs5827fu  
