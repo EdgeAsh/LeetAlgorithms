@@ -6,7 +6,9 @@
 主定理适用于`分治法` 
 
 ### 三种情况
-![三种情况](../assets/master-theorem-3conditions.png)
+![三种情况](../assets/master-theorem-3conditions.png)  
+
+### 我能提出什么问题？
 
 
 ### 推理过程，暂时忽略
