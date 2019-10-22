@@ -158,6 +158,11 @@ function countingSort() {
 0-9,组成基本单元。根据位数位置存储在0-9中  
 后一位的排序必定是基于前一次排序结果的。  
 
+#### 如何取某一位数
+求余+整除  
+例如569，取十位(6)；方式为 569%100/10>>0  
+余数是要取位数的10倍(取10位数，求原数与100的余数->69)，除数与位数同位。
+
 ```js
 let counter = [];
 function radixSort(arr, maxDigit) {
@@ -165,6 +170,7 @@ function radixSort(arr, maxDigit) {
     let dev = 1;
     for (let i = 0; i < maxDigit; i++, dev *= 10, mod *= 10) {
         for(let j = 0; j < arr.length; j++) {
+            // 取出数，取的是什么分位由mod&dev决定
             let bucket = parseInt((arr[j] % mod) / dev);
             if(counter[bucket]==null) {
                 counter[bucket] = [];
