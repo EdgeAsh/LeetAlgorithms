@@ -59,7 +59,7 @@ function insertionSort(arr) {
 #### js代码
 ```js
 function merge(leftArr, rightArr){  
-    var result = [];  
+    let result = [];  
     while (leftArr.length > 0 && rightArr.length > 0){  
       if (leftArr[0] < rightArr[0])  
         result.push(leftArr.shift()); //把最小的最先取出，放到结果集中   
@@ -71,13 +71,13 @@ function merge(leftArr, rightArr){
 
 function divide(array){  
     if (array.length == 1) return array;  
-    var middle = array.length>>1       //求出中点  
-    var left = array.slice(0, middle);               //分割数组  
-    var right = array.slice(middle);  
+    let middle = array.length>>1       //求出中点  
+    let left = array.slice(0, middle);               //分割数组  
+    let right = array.slice(middle);  
     return merge(divide(left), divide(right)); //递归合并与排序  
 }  
 
-var arr = divide([32,12,56,78,76,45,36]);
+let arr = divide([32,12,56,78,76,45,36]);
 console.log(arr);   // [12, 32, 36, 45, 56, 76, 78]
 ```
 
@@ -159,8 +159,29 @@ function countingSort() {
 后一位的排序必定是基于前一次排序结果的。  
 
 ```js
-function radixSort() {
-
+let counter = [];
+function radixSort(arr, maxDigit) {
+    let mod = 10;
+    let dev = 1;
+    for (let i = 0; i < maxDigit; i++, dev *= 10, mod *= 10) {
+        for(let j = 0; j < arr.length; j++) {
+            let bucket = parseInt((arr[j] % mod) / dev);
+            if(counter[bucket]==null) {
+                counter[bucket] = [];
+            }
+            counter[bucket].push(arr[j]);
+        }
+        let pos = 0;
+        for(let j = 0; j < counter.length; j++) {
+            let value = null;
+            if(counter[j]!=null) {
+                while ((value = counter[j].shift()) != null) {
+                    arr[pos++] = value;
+                }
+            }
+        }
+    }
+    return arr;
 }
 ```
 
