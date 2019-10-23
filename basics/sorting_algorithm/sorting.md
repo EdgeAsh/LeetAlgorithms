@@ -164,11 +164,36 @@ function countingSort() {
 余数是要取位数的10倍(取10位数，求原数与100的余数->69)，除数与位数同位。
 
 ```js
-let counter = [];
+/**
+* 目前是对于正整数的排序
+* arg1: 要排序的数组
+* arg2: 最大数的位数
+*/
 function radixSort(arr, maxDigit) {
     let mod = 10; // 模
     let div = 1; // 除数
-    
+    let counter = [];
+    // 每位都要从新排序，到最后一位就是最终的结果
+    for(let i = 0; i < maxDigit; i++, mod *= 10, div *= 10) {
+        // 存数，是一个循环
+        for(let ii = 0; ii < arr.length; ii++) {
+            let temp = arr[ii];
+            let bit = temp%mod/div>>0;
+            if (!counter[bit]) {
+                counter[bit] = [];
+            }
+            counter[bit].push(temp);
+        }
+
+        // 取数又是一个循环，先在原数组上变化
+        for(let jj = 0, j = 0; jj < counter.length; jj++) {
+            let tarr = counter[jj];
+            while(tarr && tarr.length) {
+                arr[j++] = tarr.shift(); // shift是会修改数组的，所以counter不需要重新赋值
+            }
+        }
+    }
+    return arr;
 }
 ```
 
