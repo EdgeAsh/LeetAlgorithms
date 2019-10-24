@@ -182,30 +182,13 @@ function bucketSort(arr, bucketSize) {
 ### 计数排序(out-place)(稳定)
 统计数字i出现的次数，i在带排序数组的范围内(找出最大&最小)；  
 以i为key，相同数字出现的次数为value(这是大概的思路)  
-只要给i排序，则整个数组的排序就基本完成了。
+i是数组下标，counter[i]存储i出现的次数；  
+
+单纯用这个来排序的话，应该是很垃圾的吧。或许会被当成组合用法，不会是个无用的排序。
 
 ```js
 function countingSort(arr, maxValue) {
-    let bucket = new Array(maxValue+1),
-        sortedIndex = 0;
-    let arrLen = arr.length,
-    let bucketLen = maxValue + 1;
-
-    for (let i = 0; i < arrLen; i++) {
-        if (!bucket[arr[i]]) {
-            bucket[arr[i]] = 0;
-        }
-        bucket[arr[i]]++;
-    }
-
-    for (let j = 0; j < bucketLen; j++) {
-        while(bucket[j] > 0) {
-            arr[sortedIndex++] = j;
-            bucket[j]--;
-        }
-    }
-
-    return arr;
+    
 }
 ```
 
