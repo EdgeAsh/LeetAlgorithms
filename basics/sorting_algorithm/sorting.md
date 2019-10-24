@@ -188,7 +188,23 @@ i是数组下标，counter[i]存储i出现的次数；
 
 ```js
 function countingSort(arr, maxValue) {
-    
+    let counter = new Array(maxValue+1);
+    for(let i = 0; i < arr.length; i++) {
+        let num = arr[i];
+        if (!counter[num]) {
+            counter[num] = 0;
+        }
+        counter[num] += 1;
+    }
+
+    let pos = 0;
+    for(let j = 0; j < counter.length; j++) {
+        while(counter[j]>0) {
+            arr[pos++] = j;
+            counter[j]--;
+        }
+    }
+    return arr;
 }
 ```
 
