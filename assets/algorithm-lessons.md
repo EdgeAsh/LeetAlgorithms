@@ -18,3 +18,12 @@
 
 [最优二叉查找树](https://v.youku.com/v_show/id_XMzU3OTI1MDI0MA==.html)   
     观看密码：dkpz3891xq
+
+
+## 红黑树
+[红黑树性质](https://v.youku.com/v_show/id_XMzQ1MzM5NTE0MA==.html)   
+    观看密码：bpds5238up
+
+[红黑树操作](https://v.youku.com/v_show/id_XMzQ3MTI5NTEwOA==.html)   
+    观看密码：bvut7529pq
+
