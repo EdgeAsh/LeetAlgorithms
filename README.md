@@ -23,6 +23,7 @@
 代码至少需要通过leetcode所有的测试用例。
 
 ### 各种数学符号
+如果在github上不能看到编译后的符号，请到[这里](https://chrome.google.com/webstore/detail/mathjax-plugin-for-github/ioemnmodlmafdkllaclgeombjnmnbima/related)安装插件
 
 | 符号 | 代码 | 符号 | 代码 |
 | ------ | ------ | ------ | ------ |
@@ -77,6 +78,5 @@
 
 #### 注意
 1. 带`*`的不一定能编译
-2. 如果在github上不能看到编译后的符号，请到[这里](https://chrome.google.com/webstore/detail/mathjax-plugin-for-github/ioemnmodlmafdkllaclgeombjnmnbima/related)安装插件
 
 参考[Markdown数学符号&公式](https://blog.csdn.net/Katherine_hsr/article/details/79179622)
