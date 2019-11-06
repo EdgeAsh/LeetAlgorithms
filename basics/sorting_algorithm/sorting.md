@@ -45,7 +45,12 @@ function insertionSort(arr) {
 将小值冒出来，第一次拿第一个跟剩余的比较，前面的比后面的大就交换值。  
 第二次就拿第二个跟后面的进行比较，以此类推；得到升序的结果。  
 
+#### js代码
 ```js
+/**
+* 双重for循环来处理
+* 测试数据 num = [22, 34, 3, 32, 82, 55, 89, 50, 37, 5, 64, 35, 9, 70];
+*/
 function bubbleSort(arr) {
     for(let i = 0; i < arr.length; i++) {
         for(let j = i+1; j < arr.length; j++) {
