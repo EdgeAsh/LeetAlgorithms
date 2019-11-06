@@ -39,6 +39,24 @@ function insertionSort(arr) {
 ### 希尔排序(in-place)(不稳定)
 
 ### 冒泡排序(in-place)(稳定)
+大学里就学过的算法，但是这里再来整理方便自己查阅。冒泡排序比较低效  
+
+将小值冒出来，第一次拿第一个跟剩余的比较，前面的比后面的大就交换值。得到升序的结果
+
+```js
+function bubbleSort(arr) {
+    for(let i = 0; i < arr.length; i++) {
+        for(let j = i+1; j < arr.length; j++) {
+            if (arr[i] > arr[j]) {
+                let temp = arr[i];
+                arr[i] = arr[j];
+                arr[j] = temp;
+            }
+        }
+    }
+    return arr;
+}
+```
 
 ## 时间复杂度O(NlogN)
 
@@ -50,8 +68,8 @@ function insertionSort(arr) {
 治：处理元问题  
 合：将元问题的解合成复杂问题的解  
 
-分解的函数divide将原始数组一分为二，递归下去，直到数组不可再分
-合并是另一个函数merge，接收两个参数。是两个数组，将两个数组合并成一个(排序在此)
+分解的函数divide将原始数组一分为二，递归下去，直到数组不可再分  
+合并是另一个函数merge，接收两个参数。是两个数组，将两个数组合并成一个(排序在此)  
 注意较长的数组处理
 
 递归怎么用还是不好想的
