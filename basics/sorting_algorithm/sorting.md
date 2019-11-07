@@ -36,6 +36,36 @@ function insertionSort(arr) {
 
 ### 选择排序(in-place)(不稳定)
 
+思路：  
+将最值一个个拎到前面来；在原数组上；  
+
+步骤：  
+1. 找到最值，保存位置；初始位置是未排序部分首位  
+2. 用当前最值与后面的比较，遇到更小的则位置记录要刷新  
+3. 一轮比较完后，将最值放在已排序部分末尾；  
+4. 重复1-3  
+
+#### js代码
+```js
+/**
+* 在原数组前部存放排过序的数字，升序
+*/
+function selectionSort(arr) {
+    for(let i = 0; i < arr.length; i++) {
+        let min = i;
+        for (let j = i+1; j < arr.length; j++) {
+            if (arr[min] > arr[j]) { // 注意比较条件
+                min = j;
+            }
+        }
+        let temp = arr[min];
+        arr[min] = arr[i];
+        arr[i] = temp;
+    }
+    return arr
+}
+```
+
 ### 希尔排序(in-place)(不稳定)
 
 ### 冒泡排序(in-place)(稳定)
