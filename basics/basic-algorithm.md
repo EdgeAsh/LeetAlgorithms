@@ -6,7 +6,7 @@
 - 枚举法
 
 ## 元算法
-- [排序算法](./sorting_algorithm/sorting.md)
+- [排序算法](./sorting_algorithm/ten-basic-sorting.md)
     - O(N^2)
         - 插入排序
         - 选择排序
