@@ -279,3 +279,7 @@ function radixSort(arr, maxDigit) {
 
 
 in-place是指在原数组上排序
+
+## 零碎想法
+算法越高效，难度也越大。其实还可以深挖，不过我意志力又回去了
+
