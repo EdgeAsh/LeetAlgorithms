@@ -101,6 +101,34 @@ function selectionSort(arr) {
 
 最后对这一组排序(这个用插入排序也不快啊，加上前面的分分合合岂不是更麻烦了吗？或许是对数据有要求导致这个排序不稳定)； 
 
+总结来说就是分组排序合并再分再排再合，最后用插入排序  
+
+#### js代码
+```js
+function shellSort(arr) {
+    if (!arr.length) {
+        return arr;
+    }
+    let len = arr.length;
+    // 步长
+    let gap = len>>1; // 整除2
+    let wrap = [];
+    let pos;
+    while(gap>1) {
+        // 分组; 求余可以确定放在哪(形成一列是一组的结构)
+        for(let i = 0; i < len; i++) {
+            pos = i % gap;
+            wrap[pos].push(i);
+        }
+        // 排序合并
+        for(let j = 0; j < wrap.length; i++) {
+            wrap[j].sort();
+        }
+        gap>>1;
+    }
+}
+```
+
 ### 冒泡排序(in-place)(稳定)
 大学里就学过的算法，但是这里再来整理方便自己查阅。冒泡排序比较低效  
 
