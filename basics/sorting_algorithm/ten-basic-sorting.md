@@ -109,23 +109,7 @@ function shellSort(arr) {
     if (!arr.length) {
         return arr;
     }
-    let len = arr.length;
-    // 步长
-    let gap = len>>1; // 整除2
-    let wrap = [];
-    let pos;
-    while(gap>1) {
-        // 分组; 求余可以确定放在哪(形成一列是一组的结构)
-        for(let i = 0; i < len; i++) {
-            pos = i % gap;
-            wrap[pos].push(i);
-        }
-        // 排序合并
-        for(let j = 0; j < wrap.length; i++) {
-            wrap[j].sort();
-        }
-        gap>>1;
-    }
+    
 }
 ```
 
