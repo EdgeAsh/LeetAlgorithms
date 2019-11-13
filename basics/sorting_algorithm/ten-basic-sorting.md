@@ -78,7 +78,7 @@ function selectionSort(arr) {
 采用[这个](https://www.cnblogs.com/chengxiao/p/6104371.html)例子[8,9,1,7,2,3,5,4,6,0];  
 但使用[这个](https://zh.wikipedia.org/wiki/%E5%B8%8C%E5%B0%94%E6%8E%92%E5%BA%8F)分析方法，行列来划分  
 
-#### 分析过程
+#### 分析过程(仅为便于理解，代码是在元素组操作的)
 分组的规律，使用增量序列来分。
 本例子中第一次分组是10/2 = 5组，第二次分为 5/2 = 2组；最后是1组(不用分)  
 使用维基的行列形式就是，5列
@@ -99,9 +99,7 @@ function selectionSort(arr) {
 
 列排序+合并得到[0, 1, 3, 7, 9, 2, 4, 5, 6, 8]  
 
-最后对这一组排序(这个用插入排序也不快啊，加上前面的分分合合岂不是更麻烦了吗？或许是对数据有要求导致这个排序不稳定)； 
-
-总结来说就是分组排序合并再分再排再合，最后用插入排序  
+这里分行列只是为了便于理解代码并不这样写(否则，会降低效率)，使用步长在原数组上操作   
 
 #### js代码
 ```js
@@ -109,7 +107,18 @@ function shellSort(arr) {
     if (!arr.length) {
         return arr;
     }
-    
+    let temp;
+    let i, j, gap;
+    for (gap = arr.length >> 1; gap > 0; gap >>= 1) {
+		for (i = gap; i < arr.length; i++) {
+			temp = arr[i];
+			for (j = i - gap; j >= 0 && arr[j] > temp; j -= gap) {
+				arr[j + gap] = arr[j];
+            }
+			arr[j + gap] = temp;
+		}
+    }
+    return arr
 }
 ```
 
