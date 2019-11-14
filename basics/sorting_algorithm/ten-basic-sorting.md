@@ -66,7 +66,7 @@ function selectionSort(arr) {
 }
 ```
 
-### 希尔排序(in-place)(不稳定)
+### 希尔排序(in-place)(不稳定) TODO
 看了一下维基百科，还挺复杂的  
 是对插入排序的优化，更加高效  
 
@@ -74,6 +74,7 @@ function selectionSort(arr) {
 
 增量序列{n/2, (n/2)/2, ..., 1}  
 根据增量序列来分组，增量序列不止一种，我只是随大流了    
+增量序列证明是比较困难的  
 
 根据维基百科上的方式理解较为简单，但我对这个排序算法存在很大的疑问(真的会很快吗?)
 
@@ -83,7 +84,7 @@ function selectionSort(arr) {
 #### 分析过程(仅为便于理解，代码是在元素组操作的)
 分组的规律，使用增量序列来分。
 本例子中第一次分组是10/2 = 5组，第二次分为 5/2 = 2组；最后是1组(不用分)  
-使用维基的行列形式就是，5列
+使用维基的行列形式就是，5列  
 8, 9, 1, 7, 2  
 3, 5, 4, 6, 0  
 
@@ -111,15 +112,7 @@ function shellSort(arr) {
     }
     let temp;
     let i, j, gap;
-    for (gap = arr.length >> 1; gap > 0; gap >>= 1) {
-		for (i = gap; i < arr.length; i++) {
-			temp = arr[i];
-			for (j = i - gap; j >= 0 && arr[j] > temp; j -= gap) {
-				arr[j + gap] = arr[j];
-            }
-			arr[j + gap] = temp;
-		}
-    }
+    // TODO
     return arr
 }
 ```
