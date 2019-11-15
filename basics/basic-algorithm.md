@@ -21,7 +21,7 @@
         - 计数排序
         - 基数排序
 
-- 查找算法
+- [查找算法](./search_algorithm/three-search.md)
     - 线性查找
     - 树查找
     - 散列表查找
