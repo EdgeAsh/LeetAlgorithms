@@ -26,7 +26,7 @@
     - 树查找
     - 散列表查找
 
-## 字符串问题
+## [字符串问题](./string_algorithm/five-string-matching.md)
 - 朴素
 - KMP
 - RK
