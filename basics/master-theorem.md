@@ -9,6 +9,7 @@
 ![三种情况](../assets/master-theorem-3conditions.png)  
 
 ### 我能提出什么问题？
+这个东西有什么作用啊？  
 
 
 ### 推理过程，暂时忽略
