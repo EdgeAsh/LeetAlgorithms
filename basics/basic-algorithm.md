@@ -2,7 +2,7 @@
 - 贪心算法
 - 分而治之
 - [动态规划](./dynamic-programing.md)
-- 回溯法
+- 回溯法  例如'八皇后问题'
 - 枚举法
 
 ## 元算法
@@ -28,7 +28,7 @@
 
 ## [字符串问题](./string_algorithm/five-string-matching.md)
 - 朴素
-- KMP
 - RK
+- KMP
 - BM
 - trie
