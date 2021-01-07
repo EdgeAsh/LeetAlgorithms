@@ -47,4 +47,10 @@ function cloneLoop(x) {
     }
     return root
 }
+
+// 判断是否为对象
+function isObject(x) { // 使用toString方法
+    // 函数 "[object Function]"，数组 "[object Array]"，对象 '[object Object]'
+    return Object.prototype.toString.call(x) === '[object Object]'
+}
 ```
