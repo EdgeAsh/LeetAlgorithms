@@ -5,7 +5,7 @@
 1. 消除尾递归
 
 2. 循环
-> 换个角度，这个对象就是一颗树；使用深度优先遍历用到栈就可以处理很多数据
+> 换个角度，这个对象就是一颗树；使用深度优先遍历用到栈就可以处理很多数据；但没法解决循环引用
 > 栈空了也就遍历完了
 > 没有考虑function和array
 以[深拷贝的终极探索（99%的人都不知道）](https://segmentfault.com/a/1190000016672263)为学习参考
@@ -54,3 +54,5 @@ function isObject(x) { // 使用toString方法
     return Object.prototype.toString.call(x) === '[object Object]'
 }
 ```
+
+### 解决循环引用
